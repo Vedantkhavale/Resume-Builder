@@ -113,7 +113,7 @@ const handleSubmit = (section) => {
 
   if (section === "HSC") {
     setActiveForm("SSC");
-    dispatch(setEducationStep("SSC"));
+    dispatch(setEducationStep("SSC"));git push -u origin main
   } else if (section === "SSC") {
     setActiveForm("Degree");
     dispatch(setEducationStep("Degree"));
