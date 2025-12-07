@@ -1,0 +1,9 @@
+/* ProjectBuilder.module.css */
+.card {
+  margin-bottom: 16px;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .card { margin-bottom: 12px; }
+}

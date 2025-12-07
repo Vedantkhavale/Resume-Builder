@@ -1,0 +1,274 @@
+.container {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.header {
+  background-color: #2C3E50;
+  color: #D4AF37;
+  padding: 40px 45px;
+  text-align: center;
+}
+
+.name {
+  font-size: 2.8rem;
+  font-weight: 300;
+  margin: 0 0 10px 0;
+  letter-spacing: 6px;
+  color: #D4AF37;
+}
+
+.title {
+  font-size: 1.1rem;
+  margin: 0;
+  letter-spacing: 2px;
+  color: #ECF0F1;
+  font-weight: 300;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: calc(297mm - 120px);
+}
+
+.sidebar {
+  background-color: #34495E;
+  color: #ECF0F1;
+  padding: 35px 25px;
+}
+
+.sidebarSection {
+  margin-bottom: 35px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(236, 240, 241, 0.2);
+}
+
+.sidebarSection:last-child {
+  border-bottom: none;
+}
+
+.sidebarTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0 0 20px 0;
+  color: #D4AF37;
+}
+
+.contactList {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  word-break: break-word;
+}
+
+.contactIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.contactText {
+  flex: 1;
+}
+
+.eduItem {
+  margin-bottom: 25px;
+}
+
+.eduItem:last-child {
+  margin-bottom: 0;
+}
+
+.eduDegree {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #ECF0F1;
+}
+
+.eduSchool {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  color: #BDC3C7;
+  line-height: 1.4;
+}
+
+.eduDetails {
+  font-size: 0.8rem;
+  color: #95A5A6;
+  margin-bottom: 4px;
+}
+
+.eduYear {
+  font-size: 0.8rem;
+  color: #D4AF37;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.eduGrade {
+  font-size: 0.8rem;
+  color: #BDC3C7;
+}
+
+.skillsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.skillItem {
+  padding-left: 15px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.skillItem::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #D4AF37;
+  font-weight: bold;
+}
+
+.mainContent {
+  padding: 35px 40px;
+  background-color: #ffffff;
+}
+
+.section {
+  margin-bottom: 35px;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2C3E50;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #D4AF37;
+  letter-spacing: 1px;
+}
+
+.profileText {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #555;
+  text-align: justify;
+  margin: 0;
+}
+
+.expItem {
+  margin-bottom: 28px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ECF0F1;
+}
+
+.expItem:last-child {
+  border-bottom: none;
+}
+
+.expHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.expTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2C3E50;
+  margin: 0 0 6px 0;
+}
+
+.expCompany {
+  font-size: 0.95rem;
+  color: #7F8C8D;
+  font-style: italic;
+}
+
+.expDate {
+  font-size: 0.85rem;
+  color: #95A5A6;
+  white-space: nowrap;
+  margin-left: 20px;
+}
+
+.expList {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.expList li {
+  margin-bottom: 8px;
+}
+
+.projectItem {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ECF0F1;
+}
+
+.projectItem:last-child {
+  border-bottom: none;
+}
+
+.projectTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2C3E50;
+  margin: 0 0 10px 0;
+}
+
+.projectDesc {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0 0 10px 0;
+  text-align: justify;
+}
+
+.techStack {
+  font-size: 0.85rem;
+  color: #7F8C8D;
+}
+
+.achievementsList {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.achievementsList li {
+  margin-bottom: 10px;
+}
+
+@media print {
+  .header {
+    padding: 30px 35px;
+  }
+  
+  .sidebar {
+    padding: 25px 20px;
+  }
+  
+  .mainContent {
+    padding: 25px 30px;
+  }
+}

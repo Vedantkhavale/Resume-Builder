@@ -1,0 +1,272 @@
+.container {
+  font-family: 'Arial', sans-serif;
+  padding: 0;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.header {
+  background-color: #E74C3C;
+  color: white;
+  padding: 35px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nameSection {
+  flex: 1;
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.contactSection {
+  text-align: right;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.contactIcon {
+  font-size: 1rem;
+}
+
+.link {
+  color: white;
+  text-decoration: underline;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 0;
+}
+
+.leftColumn {
+  padding: 35px 40px;
+  border-right: 3px solid #E74C3C;
+}
+
+.rightColumn {
+  padding: 35px 30px;
+  background-color: #FFF5F5;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #E74C3C;
+  margin: 0 0 20px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #E74C3C;
+  letter-spacing: 1px;
+}
+
+.experienceItem {
+  margin-bottom: 28px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.experienceItem:last-child {
+  border-bottom: none;
+}
+
+.expHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.jobTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2C3E50;
+  margin: 0 0 6px 0;
+}
+
+.company {
+  font-size: 0.95rem;
+  color: #E74C3C;
+  font-weight: 600;
+}
+
+.dateLocation {
+  text-align: right;
+}
+
+.date {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+.responsibilities {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.responsibilities li {
+  margin-bottom: 8px;
+}
+
+.fresherNote {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #555;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #E74C3C;
+  border-radius: 4px;
+}
+
+.projectItem {
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.projectItem:last-child {
+  border-bottom: none;
+}
+
+.projectTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2C3E50;
+  margin: 0 0 8px 0;
+}
+
+.projectDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0 0 10px 0;
+}
+
+.technologies {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.eduItem {
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f0d0cd;
+}
+
+.eduItem:last-child {
+  border-bottom: none;
+}
+
+.degree {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2C3E50;
+  margin: 0 0 6px 0;
+}
+
+.institution {
+  font-size: 0.9rem;
+  color: #E74C3C;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.university {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.eduYear {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.grade {
+  font-size: 0.85rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.skillsList {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+  padding-left: 20px;
+  columns: 1;
+}
+
+.skillsList li {
+  margin-bottom: 6px;
+  break-inside: avoid;
+}
+
+.certItem {
+  margin-bottom: 16px;
+}
+
+.certName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2C3E50;
+  margin-bottom: 4px;
+}
+
+.certDetails {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.activitiesList {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.activitiesList li {
+  margin-bottom: 8px;
+}
+
+@media print {
+  .header {
+    padding: 25px 30px;
+  }
+  
+  .leftColumn,
+  .rightColumn {
+    padding: 25px 30px;
+  }
+}

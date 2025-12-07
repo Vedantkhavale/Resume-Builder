@@ -5,6 +5,7 @@ import Home from './Screens/Home';
 
 
 function App() {
+  // localStorage.clear();
   return (
     <div className="App">
 

@@ -1,0 +1,118 @@
+.container {
+  font-family: 'Times New Roman', Times, serif;
+  padding: 45px;
+  background-color: #ffffff;
+  color: #000;
+  line-height: 1.6;
+}
+
+.header {
+  text-align: center;
+  border-bottom: 3px double #000;
+  padding-bottom: 25px;
+  margin-bottom: 35px;
+}
+
+.name {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+.contactInfo {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.link {
+  color: #444;
+  margin-top: 5px;
+}
+
+.section {
+  margin-bottom: 35px;
+  page-break-inside: avoid;
+}
+
+.sectionTitle {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.item {
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.itemTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #000;
+}
+
+.itemSubtitle {
+  font-style: italic;
+  font-size: 1.05rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.itemSubtitleBold {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: #000;
+}
+
+.itemText {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.itemDescription {
+  font-size: 0.95rem;
+  margin-top: 10px;
+  line-height: 1.7;
+  text-align: justify;
+  color: #333;
+}
+
+.skillsText {
+  font-size: 1rem;
+  line-height: 1.9;
+  text-align: justify;
+  color: #333;
+}
+
+.techText {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 8px;
+  color: #555;
+}
+
+.fresherText {
+  font-size: 1rem;
+  font-style: italic;
+  color: #555;
+  text-align: center;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+@media print {
+  .container {
+    padding: 25px;
+  }
+}

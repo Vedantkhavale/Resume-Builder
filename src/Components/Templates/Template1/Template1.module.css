@@ -1,0 +1,279 @@
+.container {
+  display: flex;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  min-height: 297mm;
+}
+
+.sidebar {
+  width: 35%;
+  background-color: #3d4e5c;
+  color: white;
+  padding: 0;
+}
+
+.profileSection {
+  background-color: #ffffff;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #8a9ba8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.avatarIcon {
+  width: 100%;
+  height: 100%;
+}
+
+.sidebarSection {
+  padding: 25px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebarTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 0 0 15px 0;
+  color: #ffffff;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+.contactText {
+  flex: 1;
+  word-break: break-word;
+}
+
+.skillsList {
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.skillItem {
+  margin-bottom: 6px;
+}
+
+.languageItem {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.proficiency {
+  display: block;
+  font-size: 0.75rem;
+  color: #b8c5d0;
+  margin-top: 2px;
+}
+
+.mainContent {
+  width: 65%;
+  padding: 0;
+}
+
+.header {
+  background-color: #3d4e5c;
+  color: white;
+  padding: 30px 35px;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: 2px;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.section {
+  padding: 25px 35px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.sectionIcon {
+  width: 30px;
+  height: 30px;
+  background-color: #3d4e5c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  font-size: 1rem;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: #3d4e5c;
+  letter-spacing: 1px;
+}
+
+.objectiveText {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0;
+  text-align: justify;
+}
+
+.educationItem {
+  margin-bottom: 20px;
+}
+
+.eduHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.eduDegree {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.eduYear {
+  font-size: 0.85rem;
+  color: #666;
+  background-color: #f0f0f0;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.eduInstitution {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.eduUniversity {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.eduPercentage {
+  font-size: 0.85rem;
+  color: #3d4e5c;
+  font-weight: 600;
+}
+
+.projectItem {
+  margin-bottom: 18px;
+}
+
+.projectHeader {
+  margin-bottom: 8px;
+}
+
+.projectTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.projectDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 8px 0;
+}
+
+.techList {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 8px;
+}
+
+.experienceItem {
+  margin-bottom: 20px;
+}
+
+.expHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.expTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.expDate {
+  font-size: 0.85rem;
+  color: #666;
+  background-color: #f0f0f0;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.expCompany {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.expDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+}
+
+.activitiesList {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.activitiesList li {
+  margin-bottom: 8px;
+}
+
+@media print {
+  .container {
+    min-height: auto;
+  }
+}
