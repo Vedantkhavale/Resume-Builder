@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { useDispatch, useSelector } from "react-redux";
-import { setFormData } from "../../Redux/formSlice";
+import { nextStep, setFormData } from "../../Redux/formSlice";
 import styles from "./Experience.module.css";
 
 export default function Experience() {
@@ -89,7 +89,9 @@ export default function Experience() {
       })
     );
 
+
     alert("✅ Resume completed successfully! You can now preview and download your resume.");
+    dispatch(nextStep());
   };
 
   return (

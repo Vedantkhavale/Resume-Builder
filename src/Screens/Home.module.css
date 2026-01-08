@@ -1,6 +1,6 @@
 .pageContainer {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
   padding: 20px;
 }
 
@@ -13,7 +13,7 @@
   background-color: white;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  padding: 40px;
+  padding: 10px 40px;
   margin-bottom: 30px;
 }
 
@@ -25,11 +25,11 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 }
 
 .stepContent {
-  margin-top: 40px;
+  margin-top: 10px;
   margin-bottom: 30px;
   min-height: 400px;
 }
@@ -80,6 +80,29 @@
 .previewButton:active {
   transform: translateY(-1px);
 }
+
+
+.navigationButtons {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.backButton {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.backButton:hover {
+  background-color: #e2e8f0;
+}
+
+
 
 @media (max-width: 768px) {
   .pageContainer {

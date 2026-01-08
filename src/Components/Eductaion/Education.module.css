@@ -85,3 +85,8 @@
   box-shadow: 0 0 4px rgba(220, 53, 69, 0.4);
   height: 40px;
 }
+
+.required {
+  color: red;
+  margin-left: 2px;
+}

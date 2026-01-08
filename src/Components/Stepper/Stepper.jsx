@@ -1,9 +1,19 @@
 import React from 'react';
 import styles from './Stepper.module.css';
+import { useDispatch } from 'react-redux';
+import { setCurrentStep } from '../../Redux/formSlice';
 
 export default function Stepper({ steps, currentStep }) {
-  const stepIcons = ['👤', '🎓', '💡', '📁', '💼'];
-
+   const dispatch = useDispatch();
+  const stepIcons = ['👤', '🎓', '💡', '📁', '💼','👁️'];
+const handleStepClick = (stepNumber) => {
+    // Allow only backward navigation or current step
+    if (stepNumber <= currentStep) {
+       if (stepNumber <= currentStep) {
+      dispatch(setCurrentStep(stepNumber));
+    }
+    }
+  };
   return (
     <div className={styles.steppercontainer}>
       <div className={styles.stepper}>
@@ -15,6 +25,7 @@ export default function Stepper({ steps, currentStep }) {
           return (
             <div
               key={index}
+               onClick={() => handleStepClick(stepNumber)}
               className={`${styles.step} 
                 ${isActive ? styles.active : ''} 
                 ${isCompleted ? styles.completed : ''}`}

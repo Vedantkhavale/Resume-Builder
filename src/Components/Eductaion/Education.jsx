@@ -23,6 +23,29 @@ export default function Education() {
     Degree: { degreeName: "", collegeName: "", university: "", passingYear: "", percentage: "" },
   });
   
+  useEffect(() => {
+  if (!formData) return;
+
+  setEducationData((prev) => ({
+    HSC:
+      formData?.HSC && Object.values(formData?.HSC).some(Boolean)
+        ? { ...prev.HSC, ...formData?.HSC }
+        : prev.HSC,
+
+    SSC:
+      formData?.SSC && Object.values(formData?.SSC).some(Boolean)
+        ? { ...prev.SSC, ...formData?.SSC }
+        : prev.SSC,
+
+    Degree:
+      formData?.Degree && Object.values(formData?.Degree).some(Boolean)
+        ? { ...prev.Degree, ...formData?.Degree }
+        : prev.Degree,
+  }));
+// 👇 IMPORTANT: run ONLY when redux formData changes (page load / refresh)
+}, [formData]);
+
+
   // ✅ BOARD LIST DATA
   const boardList = [
     { id: 1, name: "CENTRAL BOARD OF SECONDARY EDUCATION", location: "NEW DELHI" },
@@ -143,16 +166,32 @@ export default function Education() {
     }));
   };
 
+  const requiredFields = {
+  HSC: ["board", "school", "passingYear", "percentage"], // stream NOT required
+  SSC: ["board", "school", "passingYear", "percentage"],
+  Degree: ["degreeName", "collegeName", "university", "passingYear", "percentage"],
+};
+
+const isRequired = (section, field) =>
+  requiredFields[section]?.includes(field);
+
+
   const validate = (section) => {
     const formData = educationData[section];
     const newErrors = {};
 
-    Object.entries(formData).forEach(([key, value]) => {
-      // Check for empty string/null for required fields
-      if (!value || (typeof value === 'string' && !value.trim())) {
-          newErrors[key] = "This field is required";
-      }
-    });
+    // Object.entries(formData).forEach(([key, value]) => {
+    //   // Check for empty string/null for required fields
+    //   if (!value || (typeof value === 'string' && !value.trim())) {
+    //       newErrors[key] = "This field is required";
+    //   }
+    // });
+    requiredFields[section].forEach((field) => {
+  if (!formData[field] || !formData[field].toString().trim()) {
+    newErrors[field] = "This field is required";
+  }
+});
+
 
     if (formData.passingYear && !/^\d{4}$/.test(formData.passingYear)) {
       newErrors.passingYear = "Enter a valid 4-digit year";
@@ -183,10 +222,21 @@ export default function Education() {
 
     dispatch(setFormData(updatedFormData));
 
-    if (section === "HSC") {
-      setActiveForm("SSC");
-      dispatch(setEducationStep("SSC"));
-    } else if (section === "SSC") {
+    // if (section === "HSC") {
+    //   setActiveForm("SSC");
+    //   dispatch(setEducationStep("SSC"));
+    // } else if (section === "SSC") {
+    //   setActiveForm("Degree");
+    //   dispatch(setEducationStep("Degree"));
+    // } else {
+    //   dispatch(setEducationStep("Completed"));
+    //   dispatch(nextStep());
+    // }
+
+     if (section === "SSC") {
+      setActiveForm("HSC");
+      dispatch(setEducationStep("HSC"));
+    } else if (section === "HSC") {
       setActiveForm("Degree");
       dispatch(setEducationStep("Degree"));
     } else {
@@ -195,10 +245,31 @@ export default function Education() {
     }
   };
 
+  const shouldDisableYear = (section, year) => {
+  const y = year.getFullYear();
+
+  if (section === "HSC" && educationData.SSC.passingYear) {
+    return y <= Number(educationData.SSC.passingYear);
+  }
+
+  if (section === "Degree" && educationData.HSC.passingYear) {
+    return y <= Number(educationData.HSC.passingYear);
+  }
+
+  return false;
+};
+
+
   // ✅ NEW FUNCTION FOR BOARD AUTOCOMPLETE
   const renderBoardAutocomplete = (section, field, label) => (
     <FormGroup className={styles.fieldContainer}>
-      <Label>{label}</Label>
+      <Label>
+  {label}
+  {isRequired(section, field) && (
+    <span className={styles.required}> *</span>
+  )}
+</Label>
+
       <Autocomplete
         options={boardOptions}
         // Group the boards by location for better UX
@@ -217,7 +288,7 @@ export default function Education() {
         renderInput={(params) => (
           <TextField
             {...params}
-            label={label}
+            // label={label}
             fullWidth
             size="small"
             placeholder="Select Board Name"
@@ -235,7 +306,13 @@ export default function Education() {
   // Existing renderInput (used for generic text fields)
   const renderInput = (section, field, label, type = "text") => (
     <FormGroup className={styles.fieldContainer}>
-      <Label>{label}</Label>
+      <Label>
+  {label}
+  {isRequired(section, field) && (
+    <span className={styles.required}> *</span>
+  )}
+</Label>
+
       <Input
         type={type}
         value={educationData[section][field]}
@@ -246,13 +323,31 @@ export default function Education() {
     </FormGroup>
   );
 
-  const renderDate = (section, field, label) => (
-    <FormGroup className={styles.fieldContainer}>
-      <Label>{label}</Label>
+  const renderDate = (section, field, label) => {
+      const currentYear = new Date().getFullYear();
+  let minYear;
+
+  // Set minimum year based on previous education
+  if (section === "HSC" && educationData.SSC.passingYear) {
+    minYear = Number(educationData.SSC.passingYear) + 1; // HSC must be after SSC
+  } else if (section === "Degree" && educationData.HSC.passingYear) {
+    minYear = Number(educationData.HSC.passingYear) + 1; // Degree must be after HSC
+  }
+
+   return ( <FormGroup className={styles.fieldContainer}>
+      <Label>
+  {label}
+  {isRequired(section, field) && (
+    <span className={styles.required}> *</span>
+  )}
+</Label>
+
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
+         shouldDisableYear={(year) => shouldDisableYear(section, year)}
+         
           views={["year"]}
-          label={label}
+          // label={label}
           value={
             educationData[section][field]
               ? new Date(educationData[section][field], 0)
@@ -262,6 +357,8 @@ export default function Education() {
             if (newValue)
               handleChange(section, field, newValue.getFullYear().toString());
           }}
+           minDate={minYear ? new Date(minYear, 0) : undefined} // earliest selectable year
+          maxDate={new Date(currentYear, 11)} // prevent future years
           slotProps={{
             textField: {
               fullWidth: true,
@@ -284,11 +381,29 @@ export default function Education() {
         />
       </LocalizationProvider>
       {/* {errors[field] && <p className={styles.errorText}>{errors[field]}</p>} */}
-    </FormGroup>
-  );
+    </FormGroup>)
+};
 
   const renderForm = (section) => {
     const forms = {
+      SSC: (
+        <>
+          <Row>
+            {/* ✅ MODIFIED: Using Autocomplete for Board Name */}
+            <Col md={6}>{renderBoardAutocomplete("SSC", "board", "Board Name")}</Col>
+            <Col md={6}>{renderInput("SSC", "school", "School Name")}</Col>
+          </Row>
+          <Row>
+            <Col md={6}>{renderDate("SSC", "passingYear", "Passing Year")}</Col>
+            <Col md={6}>{renderInput("SSC", "percentage", "Percentage")}</Col>
+          </Row>
+          <div className={styles.buttonContainer}>
+            <Button color="primary" onClick={() => handleSubmit("SSC")}>
+              Save & Next
+            </Button>
+          </div>
+        </>
+      ),
       HSC: (
         <>
           <Row>
@@ -305,24 +420,6 @@ export default function Education() {
           </Row>
           <div className={styles.buttonContainer}>
             <Button color="primary" onClick={() => handleSubmit("HSC")}>
-              Save & Next
-            </Button>
-          </div>
-        </>
-      ),
-      SSC: (
-        <>
-          <Row>
-            {/* ✅ MODIFIED: Using Autocomplete for Board Name */}
-            <Col md={6}>{renderBoardAutocomplete("SSC", "board", "Board Name")}</Col>
-            <Col md={6}>{renderInput("SSC", "school", "School Name")}</Col>
-          </Row>
-          <Row>
-            <Col md={6}>{renderDate("SSC", "passingYear", "Passing Year")}</Col>
-            <Col md={6}>{renderInput("SSC", "percentage", "Percentage")}</Col>
-          </Row>
-          <div className={styles.buttonContainer}>
-            <Button color="primary" onClick={() => handleSubmit("SSC")}>
               Save & Next
             </Button>
           </div>
@@ -357,7 +454,7 @@ export default function Education() {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="University"
+                      // label="University"
                       fullWidth
                       size="small"
                       placeholder="Select University"
@@ -389,7 +486,7 @@ export default function Education() {
 
   return (
     <div className={styles.container}>
-      {["HSC", "SSC", "Degree"].map((section) => (
+      {["SSC", "HSC", "Degree"].map((section) => (
         <div key={section} className={styles.section}>
           <div
             className={styles.header}
